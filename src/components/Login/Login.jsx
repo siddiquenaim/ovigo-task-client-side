@@ -1,8 +1,12 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { logIn } = useContext(AuthContext);
+  const navigate = useNavigate();
+
   const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
@@ -11,6 +15,13 @@ const Login = () => {
     logIn(email, password)
       .then((result) => {
         console.log(result);
+        Swal.fire({
+          icon: "success",
+          title: "Logged in Successfully",
+          showConfirmButton: true,
+          timer: 1500,
+        });
+        navigate("/");
         form.reset();
       })
       .catch((error) => console.log(error));
