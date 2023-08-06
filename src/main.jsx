@@ -12,6 +12,7 @@ import DashboardLayout from "./layouts/DashboardLayout/DashboardLayout.jsx";
 import DashboardHome from "./components/DashboardHome/DashboardHome.jsx";
 import UserCommunity from "./components/UserCommunity/UserCommunity.jsx";
 import CreateCommunity from "./components/CreateCommunity/CreateCommunity.jsx";
+import AllCommunities from "./components/AllCommunities/AllCommunities.jsx";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
+      },
+      {
+        path: "all-communities",
+        element: <AllCommunities></AllCommunities>,
       },
       {
         path: "login",

@@ -1,7 +1,18 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const DashboardLayout = () => {
+  const { user } = useContext(AuthContext);
+  const [userCommunity, setUserCommunity] = useState([]);
+
+  const url = `http://localhost:5000/allCommunities?userEmail=${user?.email}`;
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setUserCommunity(data[0]));
+  });
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -16,13 +27,33 @@ const DashboardLayout = () => {
       </div>
       <div className="drawer-side">
         <label htmlFor="my-drawer-2" className="drawer-overlay"></label>
-        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content">
+
+        <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content space-y-3">
           {/* Sidebar content here */}
-          <li>
-            <Link to="/dashboard">User Home</Link>
-          </li>
+          <h1 className="uppercase p-4 mb-14">
+            <span className="font-extrabold text-2xl flex-col">
+              Travigo
+              <br />
+            </span>
+          </h1>
           <li>
             <NavLink to="user-community">Your Community</NavLink>
+          </li>
+          {userCommunity.length !== 0 && (
+            <>
+              <li>
+                <NavLink to="manage-members">Manage Members</NavLink>
+              </li>
+              <li>
+                <NavLink to="manage-posts">Manage Posts</NavLink>
+              </li>
+            </>
+          )}
+          <li>
+            <NavLink to="joined-communities">Joined Communities</NavLink>
+          </li>
+          <li>
+            <Link to="/">Home</Link>
           </li>
         </ul>
       </div>

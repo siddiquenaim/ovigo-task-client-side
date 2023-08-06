@@ -37,6 +37,9 @@ const Navbar = () => {
             <li>
               <NavLink to="/">Home</NavLink>
             </li>
+            <li>
+              <NavLink to="/all-communities">All Communities</NavLink>
+            </li>
             {user && (
               <li>
                 <NavLink to="dashboard">Dashboard</NavLink>
@@ -54,12 +57,15 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+        <a className="btn btn-ghost normal-case text-xl">Travigo</a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-3">
           <li>
             <NavLink to="/">Home</NavLink>
+          </li>
+          <li>
+            <NavLink to="/all-communities">All Communities</NavLink>
           </li>
           {user && (
             <li>

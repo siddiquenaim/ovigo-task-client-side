@@ -26,7 +26,32 @@ const UserCommunity = () => {
           </div>
         </>
       ) : (
-        <>Community Name = {userCommunity?.name}</>
+        <>
+          <h1 className="text-3xl">{userCommunity?.name}</h1>
+          <div className="mt-20">
+            <p>Admin Name: {userCommunity?.adminName}</p>
+            <p> Admin Email: {userCommunity?.adminEmail}</p>
+            <p>
+              Total User:{" "}
+              {userCommunity?.totalUser ? (
+                <span>${userCommunity?.totalUser}</span>
+              ) : (
+                <span>0</span>
+              )}
+            </p>
+            <p>
+              Total Post:{" "}
+              {userCommunity?.totalPost ? (
+                <>
+                  <span>${userCommunity?.totalPost}</span>{" "}
+                  <button className="btn">Manage User</button>
+                </>
+              ) : (
+                <span>0</span>
+              )}
+            </p>
+          </div>
+        </>
       )}
     </div>
   );

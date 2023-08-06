@@ -5,7 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const CreateCommunity = () => {
   {
-    document.title = "Create Community | Ovigo 2.0";
+    document.title = "Create Community | Travigo";
   }
   const { user } = useContext(AuthContext);
 
