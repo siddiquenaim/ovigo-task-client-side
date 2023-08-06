@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { createUser, logOut } = useContext(AuthContext);
@@ -14,12 +15,42 @@ const Register = () => {
     const photo = form.photo.value;
     const email = form.email.value;
     const password = form.password.value;
+    const phone = form.phone.value;
+
+    const userData = {
+      name,
+      photo,
+      email,
+      password,
+      phone,
+    };
+
     createUser(email, password)
       .then((result) => {
         console.log(result);
         updateUserData(result.user, name, photo);
-        signOut();
-        navigate("/login");
+        fetch("http://localhost:5000/users", {
+          method: "POST",
+          headers: {
+            "content-type": "application/json",
+          },
+          body: JSON.stringify(userData),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            if (data?.acknowledged) {
+              Swal.fire({
+                icon: "success",
+                title: "User has been Created Successfully",
+                showConfirmButton: true,
+                timer: 1500,
+              });
+              form.reset();
+              signOut();
+              navigate("/login");
+            }
+          });
       })
       .catch((error) => console.log(error));
 
@@ -82,6 +113,15 @@ const Register = () => {
                 type="text"
                 name="email"
                 placeholder="email"
+                className="input input-bordered"
+              />
+              <label className="label">
+                <span className="label-text">Phone</span>
+              </label>
+              <input
+                type="number"
+                name="phone"
+                placeholder="phone number"
                 className="input input-bordered"
               />
             </div>

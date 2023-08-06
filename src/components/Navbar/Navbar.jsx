@@ -1,7 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const handleLogOut = () => {
+    logOut()
+      .then(() => {})
+      .catch((error) => console.log(error));
+  };
   return (
     <div className="navbar bg-base-100">
       <div className="navbar-start">
@@ -32,12 +40,16 @@ const Navbar = () => {
             <li>
               <NavLink to="dashboard">Dashboard</NavLink>
             </li>
-            <li>
-              <NavLink to="/login">Login</NavLink>
-            </li>
-            <li>
-              <NavLink to="/register">Register</NavLink>
-            </li>
+            {!user && (
+              <>
+                <li>
+                  <NavLink to="/login">Login</NavLink>
+                </li>
+                <li>
+                  <NavLink to="/register">Register</NavLink>
+                </li>
+              </>
+            )}
           </ul>
         </div>
         <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
@@ -50,16 +62,24 @@ const Navbar = () => {
           <li>
             <NavLink to="dashboard">Dashboard</NavLink>
           </li>
-          <li>
-            <NavLink to="/login">Login</NavLink>
-          </li>
-          <li>
-            <NavLink to="/register">Register</NavLink>
-          </li>
+          {!user && (
+            <>
+              <li>
+                <NavLink to="/login">Login</NavLink>
+              </li>
+              <li>
+                <NavLink to="/register">Register</NavLink>
+              </li>
+            </>
+          )}
         </ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        {user && (
+          <a onClick={handleLogOut} className="btn">
+            Logout
+          </a>
+        )}
       </div>
     </div>
   );
