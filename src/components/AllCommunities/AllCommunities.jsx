@@ -10,8 +10,8 @@ const AllCommunities = () => {
   }, []);
   return (
     <div>
-      <h1 className="text-3xl text-center">All Communities</h1>
-      <div className="overflow-x-auto">
+      <h1 className="text-3xl text-center mb-10 mt-20">All Communities</h1>
+      <div className="overflow-x-scroll lg:overflow-x-auto">
         <table className="table w-[90%] lg:w-[90%] mx-auto">
           {/* head */}
           <thead>

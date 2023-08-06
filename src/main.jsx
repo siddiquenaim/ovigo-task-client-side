@@ -13,6 +13,7 @@ import DashboardHome from "./components/DashboardHome/DashboardHome.jsx";
 import UserCommunity from "./components/UserCommunity/UserCommunity.jsx";
 import CreateCommunity from "./components/CreateCommunity/CreateCommunity.jsx";
 import AllCommunities from "./components/AllCommunities/AllCommunities.jsx";
+import CommunityDetails from "./components/CommunityDetails/CommunityDetails.jsx";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +35,12 @@ const router = createBrowserRouter([
       {
         path: "register",
         element: <Register></Register>,
+      },
+      {
+        path: "/community-details/:id",
+        element: <CommunityDetails></CommunityDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allCommunities/${params.id}`),
       },
     ],
   },
