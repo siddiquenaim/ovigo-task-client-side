@@ -58,7 +58,7 @@ const MemberCard = (props) => {
         <p>{member?.email}</p>
         <div className="card-actions justify-end">
           {userEmail === mail ? (
-            <p>Admin</p>
+            <p className="font-semibold">Admin</p>
           ) : (
             <button
               onClick={() => handleRemoveMember(member?.email)}
