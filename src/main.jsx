@@ -43,13 +43,17 @@ const router = createBrowserRouter([
         path: "/community-details/:id",
         element: <CommunityDetails></CommunityDetails>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allCommunities/${params.id}`),
+          fetch(
+            `https://ovigo-task-server-side.vercel.app/allCommunities/${params.id}`
+          ),
       },
       {
         path: "/visit-community/:id",
         element: <VisitCommunity></VisitCommunity>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/allCommunities/${params.id}`),
+          fetch(
+            `https://ovigo-task-server-side.vercel.app/allCommunities/${params.id}`
+          ),
       },
     ],
   },

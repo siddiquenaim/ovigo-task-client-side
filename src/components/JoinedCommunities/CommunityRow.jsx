@@ -7,7 +7,9 @@ const CommunityRow = (props) => {
   const i = props.i;
 
   useEffect(() => {
-    fetch(`http://localhost:5000/allCommunities/${communityID}`)
+    fetch(
+      `https://ovigo-task-server-side.vercel.app/allCommunities/${communityID}`
+    )
       .then((res) => res.json())
       .then((data) => setCommunity(data));
   }, []);

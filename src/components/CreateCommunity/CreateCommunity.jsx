@@ -29,7 +29,7 @@ const CreateCommunity = () => {
       members: [user?.email],
     };
 
-    fetch("http://localhost:5000/allCommunities", {
+    fetch("https://ovigo-task-server-side.vercel.app/allCommunities", {
       method: "POST",
       headers: {
         "content-type": "application/json",

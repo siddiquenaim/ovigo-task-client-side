@@ -8,7 +8,7 @@ const MemberCard = (props) => {
 
   const [member, setMember] = useState({});
   useEffect(() => {
-    fetch(`http://localhost:5000/findUser/${mail}`)
+    fetch(`https://ovigo-task-server-side.vercel.app/findUser/${mail}`)
       .then((res) => res.json())
       .then((data) => setMember(data));
   }, [mail]);
@@ -24,13 +24,16 @@ const MemberCard = (props) => {
       confirmButtonText: `Remove ${member?.name}?`,
     }).then((result) => {
       if (result.isConfirmed) {
-        fetch(`http://localhost:5000/leaveCommunity/${community._id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ email }),
-        })
+        fetch(
+          `https://ovigo-task-server-side.vercel.app/leaveCommunity/${community._id}`,
+          {
+            method: "PATCH",
+            headers: {
+              "content-type": "application/json",
+            },
+            body: JSON.stringify({ email }),
+          }
+        )
           .then((res) => res.json())
           .then((data) => {
             if (data.modifiedCount > 0) {

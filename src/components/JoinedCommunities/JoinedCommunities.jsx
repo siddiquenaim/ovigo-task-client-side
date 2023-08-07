@@ -6,7 +6,9 @@ const JoinedCommunities = () => {
   const { user } = useContext(AuthContext);
   const [joinedCommunities, setJoinedCommunities] = useState([]);
   useEffect(() => {
-    fetch(`http://localhost:5000/joinedCommunities?userEmail=${user?.email}`)
+    fetch(
+      `https://ovigo-task-server-side.vercel.app/joinedCommunities?userEmail=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         console.log(data.communities);

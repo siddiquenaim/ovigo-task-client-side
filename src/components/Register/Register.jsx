@@ -30,7 +30,7 @@ const Register = () => {
       .then((result) => {
         console.log(result);
         updateUserData(result.user, name, photo);
-        fetch("http://localhost:5000/users", {
+        fetch("https://ovigo-task-server-side.vercel.app/users", {
           method: "POST",
           headers: {
             "content-type": "application/json",

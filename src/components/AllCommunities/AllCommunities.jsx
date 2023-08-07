@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const AllCommunities = () => {
   const [allCommunities, setAllCommunities] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/allCommunities")
+    fetch("https://ovigo-task-server-side.vercel.app/allCommunities")
       .then((res) => res.json())
       .then((data) => setAllCommunities(data));
   }, []);

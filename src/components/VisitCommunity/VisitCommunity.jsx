@@ -23,7 +23,7 @@ const VisitCommunity = () => {
       text,
     };
 
-    fetch("http://localhost:5000/post-in-community", {
+    fetch("https://ovigo-task-server-side.vercel.app/post-in-community", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -48,7 +48,9 @@ const VisitCommunity = () => {
   //   view posts
 
   useEffect(() => {
-    fetch(`http://localhost:5000/view-posts/${community._id}`)
+    fetch(
+      `https://ovigo-task-server-side.vercel.app/view-posts/${community._id}`
+    )
       .then((res) => res.json())
       .then((data) => setCommunityPosts(data));
   }, [community._id, communityPosts]);

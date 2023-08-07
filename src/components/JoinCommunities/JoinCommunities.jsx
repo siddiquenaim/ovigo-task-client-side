@@ -11,7 +11,9 @@ const JoinCommunities = () => {
 
   // find user data
   useEffect(() => {
-    fetch(`http://localhost:5000/joinedCommunities?userEmail=${user?.email}`)
+    fetch(
+      `https://ovigo-task-server-side.vercel.app/joinedCommunities?userEmail=${user?.email}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setJoinedCommunities(data.communities);
@@ -20,7 +22,7 @@ const JoinCommunities = () => {
 
   //   all communities
   useEffect(() => {
-    fetch("http://localhost:5000/allCommunities")
+    fetch("https://ovigo-task-server-side.vercel.app/allCommunities")
       .then((res) => res.json())
       .then((data) => setAllCommunities(data));
   }, []);

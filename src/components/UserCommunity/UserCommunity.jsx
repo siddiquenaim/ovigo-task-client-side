@@ -6,7 +6,7 @@ const UserCommunity = () => {
   const { user } = useContext(AuthContext);
   const [userCommunity, setUserCommunity] = useState([]);
 
-  const url = `http://localhost:5000/userCommunity?userEmail=${user?.email}`;
+  const url = `https://ovigo-task-server-side.vercel.app/userCommunity?userEmail=${user?.email}`;
 
   useEffect(() => {
     fetch(url)

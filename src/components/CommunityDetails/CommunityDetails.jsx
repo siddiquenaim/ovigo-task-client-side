@@ -19,7 +19,7 @@ const CommunityDetails = () => {
   const navigate = useNavigate();
 
   const handleJoinCommunity = () => {
-    fetch(`http://localhost:5000/joinCommunity/${_id}`, {
+    fetch(`https://ovigo-task-server-side.vercel.app/joinCommunity/${_id}`, {
       method: "PATCH",
       headers: { "content-type": "application/json" },
       body: JSON.stringify({ userEmail }),
@@ -27,7 +27,7 @@ const CommunityDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          fetch(`http://localhost:5000/updateUser/${_id}`, {
+          fetch(`https://ovigo-task-server-side.vercel.app/updateUser/${_id}`, {
             method: "PATCH",
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ userEmail }),
