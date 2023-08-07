@@ -1,11 +1,14 @@
 import React, { useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import SinglePost from "../VisitCommunity/SinglePost";
+import Banner from "../Banner/Banner";
+import JoinCommunities from "../JoinCommunities/JoinCommunities";
 
 const Home = () => {
   const { user } = useContext(AuthContext);
   const [joinedCommunities, setJoinedCommunities] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
+  const [joinedPosts, setJoinedPosts] = useState([]);
 
   // find user data
 
@@ -21,24 +24,41 @@ const Home = () => {
     fetch("http://localhost:5000/all-posts")
       .then((res) => res.json())
       .then((data) => setAllPosts(data));
-  }, []);
+  }, [user, joinedCommunities]);
 
-  let joinedPosts = [];
-  for (let post of allPosts) {
-    if (joinedCommunities.includes(post.communityID)) {
-      joinedPosts.push(post);
+  useEffect(() => {
+    if (joinedCommunities) {
+      console.log(joinedCommunities);
+      let filteredPosts = allPosts.filter((post) =>
+        joinedCommunities.includes(post.communityID)
+      );
+      setJoinedPosts(filteredPosts);
     }
-  }
+  }, [allPosts, joinedCommunities]);
 
-  console.log("joinedPosts:", joinedPosts);
+  // console.log(joinedPosts, allPosts);
 
   return (
     <div>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-10">
-        {joinedPosts.map((post) => (
-          <SinglePost key={post._id} post={post}></SinglePost>
-        ))}
-      </div>
+      <Banner></Banner>
+
+      {user && (
+        <>
+          <h1 className="text-center text-3xl">Community Posts</h1>
+          {joinedPosts.length === 0 && (
+            <p className="my-10 text-center">
+              Please join more active communities.
+            </p>
+          )}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-10">
+            {joinedPosts.map((post) => (
+              <SinglePost key={post._id} post={post}></SinglePost>
+            ))}
+          </div>
+        </>
+      )}
+
+      {user && <JoinCommunities></JoinCommunities>}
     </div>
   );
 };

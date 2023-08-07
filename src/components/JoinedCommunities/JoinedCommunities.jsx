@@ -8,7 +8,10 @@ const JoinedCommunities = () => {
   useEffect(() => {
     fetch(`http://localhost:5000/joinedCommunities?userEmail=${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setJoinedCommunities(data.communities));
+      .then((data) => {
+        console.log(data.communities);
+        setJoinedCommunities(data.communities);
+      });
   }, [user?.email]);
 
   return (

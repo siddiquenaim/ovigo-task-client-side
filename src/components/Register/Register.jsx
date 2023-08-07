@@ -22,8 +22,8 @@ const Register = () => {
       name,
       photo,
       email,
-      password,
       phone,
+      communities: [],
     };
 
     createUser(email, password)
