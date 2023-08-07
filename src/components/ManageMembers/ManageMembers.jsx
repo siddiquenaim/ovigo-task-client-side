@@ -27,6 +27,7 @@ const ManageMembers = () => {
             key={i}
             mail={member}
             userEmail={user?.email}
+            userCommunity={userCommunity}
           ></MemberCard>
         ))}
       </div>

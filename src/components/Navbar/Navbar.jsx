@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { FaPlaneDeparture } from "react-icons/fa";
 
 const Navbar = () => {
   const { user, logOut } = useContext(AuthContext);
@@ -62,7 +63,10 @@ const Navbar = () => {
             )}
           </ul>
         </div>
-        <a className="btn btn-ghost normal-case text-xl">Travigo</a>
+
+        <a className="btn btn-ghost normal-case text-xl">
+          <FaPlaneDeparture className="mr-2"></FaPlaneDeparture> Travigo
+        </a>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 space-x-3">
