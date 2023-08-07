@@ -30,7 +30,7 @@ const AllCommunities = () => {
                 <th>{i + 1}</th>
                 <td>{community?.adminName}</td>
                 <td>{community?.name}</td>
-                <td>{community?.totalUser ? community?.totalUser : 0}</td>
+                <td>{community?.members ? community?.members?.length : 0}</td>
                 <td>{community?.totalPost ? community?.totalPost : 0}</td>
 
                 <td>

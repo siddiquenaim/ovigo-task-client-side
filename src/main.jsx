@@ -15,6 +15,7 @@ import CreateCommunity from "./components/CreateCommunity/CreateCommunity.jsx";
 import AllCommunities from "./components/AllCommunities/AllCommunities.jsx";
 import CommunityDetails from "./components/CommunityDetails/CommunityDetails.jsx";
 import ManageMembers from "./components/ManageMembers/ManageMembers.jsx";
+import JoinedCommunities from "./components/JoinedCommunities/JoinedCommunities.jsx";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "manage-members",
         element: <ManageMembers></ManageMembers>,
+      },
+      {
+        path: "joined-communities",
+        element: <JoinedCommunities></JoinedCommunities>,
       },
     ],
   },

@@ -2,12 +2,14 @@ import { useContext } from "react";
 
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { useNavigate } from "react-router-dom";
 
 const CreateCommunity = () => {
   {
     document.title = "Create Community | Travigo";
   }
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
 
   const handleCreateCommunity = (event) => {
     event.preventDefault();
@@ -44,6 +46,7 @@ const CreateCommunity = () => {
             showConfirmButton: true,
             timer: 1500,
           });
+          navigate("/");
           form.reset();
         }
       });

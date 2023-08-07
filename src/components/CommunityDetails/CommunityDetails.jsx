@@ -6,16 +6,8 @@ import Swal from "sweetalert2";
 const CommunityDetails = () => {
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
-  const {
-    _id,
-    name,
-    adminName,
-    adminEmail,
-    totalPost,
-    totalUser,
-    image,
-    members,
-  } = useLoaderData();
+  const { _id, name, adminName, adminEmail, totalPost, image, members } =
+    useLoaderData();
 
   const handleJoinCommunity = () => {
     fetch(`http://localhost:5000/joinCommunity/${_id}`, {
@@ -26,12 +18,22 @@ const CommunityDetails = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.modifiedCount > 0) {
-          Swal.fire({
-            icon: "success",
-            title: `You have joined ${name}`,
-            showConfirmButton: true,
-            timer: 1500,
-          });
+          fetch(`http://localhost:5000/updateUser/${_id}`, {
+            method: "PATCH",
+            headers: { "content-type": "application/json" },
+            body: JSON.stringify({ userEmail }),
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.modifiedCount > 0) {
+                Swal.fire({
+                  icon: "success",
+                  title: `You have joined ${name}`,
+                  showConfirmButton: true,
+                  timer: 1500,
+                });
+              }
+            });
         }
       });
   };
