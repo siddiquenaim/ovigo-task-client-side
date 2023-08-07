@@ -16,7 +16,7 @@ const JoinedCommunities = () => {
 
   return (
     <div>
-      <h1 className="text-3xl text-center mb-10 mt-20">Joined Communities</h1>
+      <h1 className="text-4xl text-center mb-10 mt-20">Joined Communities</h1>
       <div className="overflow-x-scroll lg:overflow-x-auto">
         <table className="table w-[90%] lg:w-full mx-auto">
           {/* head */}
@@ -26,7 +26,6 @@ const JoinedCommunities = () => {
               <th>Admin</th>
               <th>Community</th>
               <th>Number of Members</th>
-              <th>Number of Posts</th>
               <th>View Details</th>
             </tr>
           </thead>

@@ -32,10 +32,7 @@ const DashboardLayout = () => {
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content space-y-3">
           {/* Sidebar content here */}
           <h1 className="uppercase p-4 mb-14">
-            <span className="font-extrabold text-2xl flex-col">
-              Travigo
-              <br />
-            </span>
+            <span className="font-extrabold text-2xl flex-col">Travigo</span>{" "}
           </h1>
           <li>
             <NavLink to="user-community">Your Community</NavLink>
@@ -45,9 +42,9 @@ const DashboardLayout = () => {
               <li>
                 <NavLink to="manage-members">Manage Members</NavLink>
               </li>
-              <li>
+              {/* <li>
                 <NavLink to="manage-posts">Manage Posts</NavLink>
-              </li>
+              </li> */}
             </>
           )}
           <li>

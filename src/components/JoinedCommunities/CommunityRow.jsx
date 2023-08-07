@@ -18,7 +18,6 @@ const CommunityRow = (props) => {
       <td>{community?.adminName}</td>
       <td>{community?.name}</td>
       <td>{community?.members ? community?.members?.length : 0}</td>
-      <td>{community?.totalPost ? community?.totalPost : 0}</td>
 
       <td>
         <Link to={`/community-details/${community?._id}`}>

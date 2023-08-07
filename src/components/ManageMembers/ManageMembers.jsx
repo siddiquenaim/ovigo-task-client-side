@@ -15,8 +15,10 @@ const ManageMembers = () => {
   });
   return (
     <div className="p-4">
-      <h1 className="text-center">The members of your community</h1>
-      <h2 className="text-center">
+      <h1 className="text-center text-4xl mb-3">
+        The members of your community
+      </h1>
+      <h2 className="text-center text-xl font-semibold">
         Total Members: {userCommunity?.members?.length}
       </h2>
       <div className="my-10 grid gap-4 grid-cols-1 lg:grid-cols-4">
