@@ -16,6 +16,7 @@ import AllCommunities from "./components/AllCommunities/AllCommunities.jsx";
 import CommunityDetails from "./components/CommunityDetails/CommunityDetails.jsx";
 import ManageMembers from "./components/ManageMembers/ManageMembers.jsx";
 import JoinedCommunities from "./components/JoinedCommunities/JoinedCommunities.jsx";
+import VisitCommunity from "./components/VisitCommunity/VisitCommunity.jsx";
 
 const router = createBrowserRouter([
   {
@@ -41,6 +42,12 @@ const router = createBrowserRouter([
       {
         path: "/community-details/:id",
         element: <CommunityDetails></CommunityDetails>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allCommunities/${params.id}`),
+      },
+      {
+        path: "/visit-community/:id",
+        element: <VisitCommunity></VisitCommunity>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/allCommunities/${params.id}`),
       },

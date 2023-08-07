@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import Swal from "sweetalert2";
 
@@ -8,6 +8,7 @@ const CommunityDetails = () => {
   const userEmail = user?.email;
   const { _id, name, adminName, adminEmail, totalPost, image, members } =
     useLoaderData();
+  const navigate = useNavigate();
 
   const handleJoinCommunity = () => {
     fetch(`http://localhost:5000/joinCommunity/${_id}`, {
@@ -32,6 +33,7 @@ const CommunityDetails = () => {
                   showConfirmButton: true,
                   timer: 1500,
                 });
+                navigate(`/visit-community/${_id}`);
               }
             });
         }
@@ -73,6 +75,12 @@ const CommunityDetails = () => {
           >
             {alreadyJoined ? "Already Joined" : "Join Community"}
           </button>
+
+          {alreadyJoined && (
+            <Link to={`/visit-community/${_id}`}>
+              <button className="btn btn-primary ml-2">Visit Community</button>
+            </Link>
+          )}
         </div>
       </div>
     </div>

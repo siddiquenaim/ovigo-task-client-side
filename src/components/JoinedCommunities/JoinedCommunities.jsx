@@ -28,7 +28,7 @@ const JoinedCommunities = () => {
             </tr>
           </thead>
           <tbody>
-            {joinedCommunities.map((community, i) => (
+            {joinedCommunities?.map((community, i) => (
               <CommunityRow
                 key={community}
                 i={i}
