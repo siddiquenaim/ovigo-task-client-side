@@ -13,6 +13,7 @@ const DashboardLayout = () => {
       .then((res) => res.json())
       .then((data) => setUserCommunity(data[0]));
   });
+
   return (
     <div className="drawer lg:drawer-open">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
@@ -55,6 +56,17 @@ const DashboardLayout = () => {
           <li>
             <Link to="/">Home</Link>
           </li>
+          <div className="divider"></div>
+          {user?.photoURL && (
+            <div className="flex items-center gap-6">
+              <div className="avatar">
+                <div className="w-12 rounded-full hover:ring cursor-pointer ring-primary ring-offset-base-100 ring-offset-2">
+                  <img src={user?.photoURL} />
+                </div>
+              </div>
+              <div className="font-semibold">{user?.displayName}</div>
+            </div>
+          )}
         </ul>
       </div>
     </div>

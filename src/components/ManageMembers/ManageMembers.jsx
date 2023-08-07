@@ -14,12 +14,20 @@ const ManageMembers = () => {
       .then((data) => setUserCommunity(data[0]));
   });
   return (
-    <div>
-      <h1>The members of your community</h1>
-      <h2>Total Members: {userCommunity?.members?.length}</h2>
-      {userCommunity?.members?.map((member, i) => (
-        <MemberCard key={i} mail={member}></MemberCard>
-      ))}
+    <div className="p-4">
+      <h1 className="text-center">The members of your community</h1>
+      <h2 className="text-center">
+        Total Members: {userCommunity?.members?.length}
+      </h2>
+      <div className="my-10 grid gap-4 grid-cols-1 lg:grid-cols-4">
+        {userCommunity?.members?.map((member, i) => (
+          <MemberCard
+            key={i}
+            mail={member}
+            userEmail={user?.email}
+          ></MemberCard>
+        ))}
+      </div>
     </div>
   );
 };

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 const Register = () => {
   const { createUser, logOut } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [showError, setShowError] = useState("");
 
   const handleRegister = (event) => {
     event.preventDefault();
@@ -47,12 +48,13 @@ const Register = () => {
                 timer: 1500,
               });
               form.reset();
+              setShowError("");
               signOut();
               navigate("/login");
             }
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setShowError(error.message));
 
     const updateUserData = (user, name, photo) => {
       updateProfile(user, {
@@ -141,6 +143,7 @@ const Register = () => {
                 </a>
               </label>
             </div>
+            <p className="text-red-600">{showError && showError.slice(9)}</p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
             </div>

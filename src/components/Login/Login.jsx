@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 const Login = () => {
   const { logIn } = useContext(AuthContext);
   const navigate = useNavigate();
+  const [showError, setShowError] = useState("");
 
   const handleLogin = (event) => {
     event.preventDefault();
@@ -21,10 +22,11 @@ const Login = () => {
           showConfirmButton: true,
           timer: 1500,
         });
+        setShowError("");
         navigate("/");
         form.reset();
       })
-      .catch((error) => console.log(error));
+      .catch((error) => setShowError(error.message));
   };
 
   return (
@@ -67,6 +69,7 @@ const Login = () => {
                 </a>
               </label>
             </div>
+            <p className="text-red-600">{showError && showError.slice(9)}</p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
             </div>

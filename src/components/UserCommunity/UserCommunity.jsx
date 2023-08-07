@@ -27,7 +27,7 @@ const UserCommunity = () => {
         </>
       ) : (
         <>
-          <h1 className="text-3xl">{userCommunity?.name}</h1>
+          <h1 className="text-3xl text-center">{userCommunity?.name}</h1>
           <div className="mt-20">
             <p>Admin Name: {userCommunity?.adminName}</p>
             <p> Admin Email: {userCommunity?.adminEmail}</p>

@@ -24,6 +24,7 @@ const CreateCommunity = () => {
       adminName,
       adminEmail,
       details,
+      members: [user?.email],
     };
 
     fetch("http://localhost:5000/allCommunities", {
@@ -39,7 +40,7 @@ const CreateCommunity = () => {
         if (data?.acknowledged) {
           Swal.fire({
             icon: "success",
-            title: "Your lego has been added!",
+            title: "Your Community has been created!",
             showConfirmButton: true,
             timer: 1500,
           });
