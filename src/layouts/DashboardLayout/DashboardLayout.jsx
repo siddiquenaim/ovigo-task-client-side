@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
+import { FaPlaneDeparture } from "react-icons/fa";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
@@ -32,7 +33,10 @@ const DashboardLayout = () => {
         <ul className="menu p-4 w-80 h-full bg-base-200 text-base-content space-y-3">
           {/* Sidebar content here */}
           <h1 className="uppercase p-4 mb-14">
-            <span className="font-extrabold text-2xl flex-col">Travigo</span>{" "}
+            <span className="font-extrabold text-2xl flex-col">
+              {" "}
+              <FaPlaneDeparture className="mr-2"></FaPlaneDeparture> Travigo
+            </span>{" "}
           </h1>
           <li>
             <NavLink to="user-community">Your Community</NavLink>

@@ -35,9 +35,7 @@ const Login = () => {
         <div className="text-center lg:text-left lg:w-[50%] mx-auto">
           <h1 className="text-5xl font-bold">Login now!</h1>
           <p className="py-6 w-[75%] mx-auto lg:w-full">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Login now and connect to the people with similar traveling interest.
           </p>
         </div>
         <div className="lg:w-[50%] mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">

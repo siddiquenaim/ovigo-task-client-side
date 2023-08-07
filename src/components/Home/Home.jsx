@@ -9,13 +9,27 @@ const Home = () => {
   const [joinedCommunities, setJoinedCommunities] = useState([]);
   const [allPosts, setAllPosts] = useState([]);
   const [joinedPosts, setJoinedPosts] = useState([]);
+  const [userCommunity, setUserCommunity] = useState([]);
+  const [userCommunityPosts, setUserCommunityPosts] = useState([]);
+
+  const url = `http://localhost:5000/userCommunity?userEmail=${user?.email}`;
+
+  useEffect(() => {
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setUserCommunity(data[0]));
+  }, [url]);
+
+  console.log(userCommunity);
 
   // find user data
 
   useEffect(() => {
     fetch(`http://localhost:5000/joinedCommunities?userEmail=${user?.email}`)
       .then((res) => res.json())
-      .then((data) => setJoinedCommunities(data.communities));
+      .then((data) => {
+        setJoinedCommunities(data.communities);
+      });
   }, [user?.email]);
 
   // find all posts
@@ -36,7 +50,11 @@ const Home = () => {
     }
   }, [allPosts, joinedCommunities]);
 
-  // console.log(joinedPosts, allPosts);
+  useEffect(() => {
+    fetch(`http://localhost:5000/view-posts/${userCommunity?._id}`)
+      .then((res) => res.json())
+      .then((data) => setUserCommunityPosts(data));
+  }, [userCommunity?._id]);
 
   return (
     <div>
@@ -50,11 +68,18 @@ const Home = () => {
               Please join more active communities.
             </p>
           )}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-10">
-            {joinedPosts.map((post) => (
-              <SinglePost key={post._id} post={post}></SinglePost>
-            ))}
-          </div>
+          <>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-10">
+              {joinedPosts.map((post) => (
+                <SinglePost key={post._id} post={post}></SinglePost>
+              ))}
+            </div>
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-10">
+              {userCommunityPosts.map((post) => (
+                <SinglePost key={post._id} post={post}></SinglePost>
+              ))}
+            </div>
+          </>
         </>
       )}
 
