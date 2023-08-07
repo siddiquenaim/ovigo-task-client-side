@@ -6,7 +6,7 @@ const UserCommunity = () => {
   const { user } = useContext(AuthContext);
   const [userCommunity, setUserCommunity] = useState([]);
 
-  const url = `http://localhost:5000/allCommunities?userEmail=${user?.email}`;
+  const url = `http://localhost:5000/userCommunity?userEmail=${user?.email}`;
 
   useEffect(() => {
     fetch(url)
@@ -16,7 +16,7 @@ const UserCommunity = () => {
 
   return (
     <div>
-      {userCommunity.length === 0 ? (
+      {!userCommunity ? (
         <>
           <h1>You haven't created a community yet</h1>
           <div className="my-4 text-center">

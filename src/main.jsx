@@ -14,6 +14,7 @@ import UserCommunity from "./components/UserCommunity/UserCommunity.jsx";
 import CreateCommunity from "./components/CreateCommunity/CreateCommunity.jsx";
 import AllCommunities from "./components/AllCommunities/AllCommunities.jsx";
 import CommunityDetails from "./components/CommunityDetails/CommunityDetails.jsx";
+import ManageMembers from "./components/ManageMembers/ManageMembers.jsx";
 
 const router = createBrowserRouter([
   {
@@ -59,6 +60,10 @@ const router = createBrowserRouter([
       {
         path: "user-community/create-community",
         element: <CreateCommunity></CreateCommunity>,
+      },
+      {
+        path: "manage-members",
+        element: <ManageMembers></ManageMembers>,
       },
     ],
   },

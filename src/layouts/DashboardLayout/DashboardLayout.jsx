@@ -6,7 +6,7 @@ const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
   const [userCommunity, setUserCommunity] = useState([]);
 
-  const url = `http://localhost:5000/allCommunities?userEmail=${user?.email}`;
+  const url = `http://localhost:5000/userCommunity?userEmail=${user?.email}`;
 
   useEffect(() => {
     fetch(url)
@@ -39,7 +39,7 @@ const DashboardLayout = () => {
           <li>
             <NavLink to="user-community">Your Community</NavLink>
           </li>
-          {userCommunity.length !== 0 && (
+          {userCommunity && (
             <>
               <li>
                 <NavLink to="manage-members">Manage Members</NavLink>
