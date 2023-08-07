@@ -49,7 +49,7 @@ const CommunityDetails = () => {
   };
 
   const alreadyJoined = members.includes(userEmail);
-  console.log(alreadyJoined);
+  // console.log(alreadyJoined);
 
   return (
     <div className="lg:flex justify-center my-20">
@@ -87,7 +87,7 @@ const CommunityDetails = () => {
 
             {alreadyJoined && (
               <Link to={`/visit-community/${_id}`}>
-                <button className="btn btn-primary ml-2">
+                <button className="btn bg-[#021817] text-white hover:bg-[#0218179c] ml-2">
                   Visit Community
                 </button>
               </Link>

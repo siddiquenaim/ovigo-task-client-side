@@ -14,10 +14,10 @@ const UserCommunity = () => {
       .then((data) => setUserCommunity(data[0]));
   });
 
-  console.log(userCommunity);
+  // console.log(userCommunity);
 
   return (
-    <div>
+    <div className="text-center">
       {!userCommunity ? (
         <>
           <h1 className="text-2xl">You haven't created a community yet</h1>

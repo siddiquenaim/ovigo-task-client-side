@@ -23,7 +23,9 @@ const CommunityRow = (props) => {
 
       <td>
         <Link to={`/community-details/${community?._id}`}>
-          <button className="btn">View Details</button>
+          <button className="btn bg-[#021817] text-white hover:bg-[#0218179c] normal-case btn-sm">
+            View Details
+          </button>
         </Link>
       </td>
     </tr>

@@ -8,6 +8,7 @@ const VisitCommunity = () => {
   const { user } = useContext(AuthContext);
   const community = useLoaderData();
   const [communityPosts, setCommunityPosts] = useState([]);
+  // console.log(user);
 
   //   submit a post
 
@@ -20,6 +21,7 @@ const VisitCommunity = () => {
       userEmail: user?.email,
       communityID: community?._id,
       communityName: community?.name,
+      image: user?.photoURL,
       text,
     };
 
@@ -32,7 +34,7 @@ const VisitCommunity = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
+        // console.log(data);
         if (data?.acknowledged) {
           Swal.fire({
             icon: "success",
@@ -70,17 +72,19 @@ const VisitCommunity = () => {
         />
         <input
           type="submit"
-          className="btn btn-primary block mt-3 text-center mx-auto"
+          className="btn bg-[#021817] text-white hover:bg-[#0218179c] block mt-3 text-center mx-auto"
           value="Post"
         />
       </form>
 
       {/* community posts */}
-
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 m-10">
-        {communityPosts.map((post) => (
-          <SinglePost key={post._id} post={post}></SinglePost>
-        ))}
+      <div className="px-10 pt-10 pb-20">
+        <h1 className="text-center mb-10 text-3xl">All Community Posts</h1>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-5 ">
+          {communityPosts.map((post) => (
+            <SinglePost key={post._id} post={post}></SinglePost>
+          ))}
+        </div>
       </div>
     </div>
   );

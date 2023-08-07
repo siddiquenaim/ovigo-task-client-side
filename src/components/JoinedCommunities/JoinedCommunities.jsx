@@ -11,7 +11,7 @@ const JoinedCommunities = () => {
     )
       .then((res) => res.json())
       .then((data) => {
-        console.log(data.communities);
+        // console.log(data.communities);
         setJoinedCommunities(data.communities);
       });
   }, [user?.email]);

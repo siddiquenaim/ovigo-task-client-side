@@ -28,7 +28,7 @@ const Register = () => {
 
     createUser(email, password)
       .then((result) => {
-        console.log(result);
+        // console.log(result);
         updateUserData(result.user, name, photo);
         fetch("https://ovigo-task-server-side.vercel.app/users", {
           method: "POST",
@@ -39,7 +39,7 @@ const Register = () => {
         })
           .then((res) => res.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             if (data?.acknowledged) {
               Swal.fire({
                 icon: "success",

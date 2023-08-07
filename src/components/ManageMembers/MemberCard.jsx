@@ -47,7 +47,11 @@ const MemberCard = (props) => {
   return (
     <div className="card w-full bg-base-100 shadow-xl">
       <figure>
-        <img src={member?.photo} className="w-[300px] h-[200px]" alt="Shoes" />
+        <img
+          src={member?.photo}
+          className="w-[300px] h-[200px]"
+          alt="Member Image"
+        />
       </figure>
       <div className="card-body">
         <h2 className="card-title">{member?.name}</h2>

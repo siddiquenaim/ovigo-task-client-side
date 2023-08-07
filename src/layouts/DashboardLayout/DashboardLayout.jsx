@@ -2,6 +2,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { FaPlaneDeparture } from "react-icons/fa";
+import { CgCommunity } from "react-icons/cg";
+import { FiUsers } from "react-icons/fi";
+import { TbUsersPlus } from "react-icons/tb";
+import { AiOutlineHome } from "react-icons/ai";
 
 const DashboardLayout = () => {
   const { user } = useContext(AuthContext);
@@ -39,12 +43,16 @@ const DashboardLayout = () => {
             </span>{" "}
           </h1>
           <li>
-            <NavLink to="user-community">Your Community</NavLink>
+            <NavLink to="user-community">
+              <CgCommunity className="text-md"></CgCommunity> Your Community
+            </NavLink>
           </li>
           {userCommunity && (
             <>
               <li>
-                <NavLink to="manage-members">Manage Members</NavLink>
+                <NavLink to="manage-members">
+                  <FiUsers></FiUsers> Manage Members
+                </NavLink>
               </li>
               {/* <li>
                 <NavLink to="manage-posts">Manage Posts</NavLink>
@@ -52,10 +60,14 @@ const DashboardLayout = () => {
             </>
           )}
           <li>
-            <NavLink to="joined-communities">Joined Communities</NavLink>
+            <NavLink to="joined-communities">
+              <TbUsersPlus></TbUsersPlus> Joined Communities
+            </NavLink>
           </li>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">
+              <AiOutlineHome className="text-md"></AiOutlineHome> Home
+            </Link>
           </li>
           <div className="divider"></div>
           {user?.photoURL && (

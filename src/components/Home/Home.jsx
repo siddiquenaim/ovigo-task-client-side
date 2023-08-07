@@ -20,7 +20,7 @@ const Home = () => {
       .then((data) => setUserCommunity(data[0]));
   }, [url]);
 
-  console.log(userCommunity);
+  // console.log(userCommunity);
 
   // find user data
 
@@ -44,7 +44,7 @@ const Home = () => {
 
   useEffect(() => {
     if (joinedCommunities) {
-      console.log(joinedCommunities);
+      // console.log(joinedCommunities);
       let filteredPosts = allPosts.filter((post) =>
         joinedCommunities.includes(post.communityID)
       );
@@ -58,7 +58,7 @@ const Home = () => {
     )
       .then((res) => res.json())
       .then((data) => setUserCommunityPosts(data));
-  }, [userCommunity?._id]);
+  }, [userCommunity?._id, joinedPosts]);
 
   return (
     <div>
@@ -66,7 +66,7 @@ const Home = () => {
 
       {user && (
         <>
-          <h1 className="text-center text-3xl">Community Posts</h1>
+          <h1 className="text-center text-3xl mt-10">Community Posts</h1>
           {joinedPosts.length === 0 && (
             <p className="my-10 text-center">
               Please join more active communities.

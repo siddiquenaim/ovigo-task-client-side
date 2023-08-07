@@ -41,7 +41,7 @@ const JoinCommunities = () => {
     }
 
     setSuggestedCommunities(notJoinedCommunities);
-    console.log(notJoinedCommunities);
+    // console.log(notJoinedCommunities);
   }, [allCommunities, joinedCommunities]);
 
   return (
