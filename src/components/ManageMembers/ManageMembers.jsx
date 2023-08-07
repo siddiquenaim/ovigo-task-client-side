@@ -21,7 +21,7 @@ const ManageMembers = () => {
       <h2 className="text-center text-xl font-semibold">
         Total Members: {userCommunity?.members?.length}
       </h2>
-      <div className="my-10 grid gap-4 grid-cols-1 lg:grid-cols-4">
+      <div className="my-10 grid gap-4 grid-cols-1 lg:grid-cols-4 mx-auto">
         {userCommunity?.members?.map((member, i) => (
           <MemberCard
             key={i}

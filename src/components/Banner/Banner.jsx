@@ -40,7 +40,7 @@ const Banner = () => {
             </Link>
           ) : (
             <Link to="/login">
-              <button className="btn bg-[#021817] text-white hover:bg-[#02181759]">
+              <button className="btn bg-[#021817] text-white hover:bg-[#0218179c]">
                 Start Now
               </button>
             </Link>

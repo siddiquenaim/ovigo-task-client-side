@@ -57,7 +57,7 @@ const UserCommunity = () => {
                 )}
               </p>
               <Link to={`/visit-community/${userCommunity?._id}`}>
-                <button className="btn btn-primary mt-3">
+                <button className="btn bg-[#021817] text-white hover:bg-[#0218179c] mt-3">
                   Visit Community
                 </button>
               </Link>

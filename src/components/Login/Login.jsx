@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -35,7 +35,12 @@ const Login = () => {
         <div className="text-center lg:text-left lg:w-[50%] mx-auto">
           <h1 className="text-5xl font-bold">Login now!</h1>
           <p className="py-6 w-[75%] mx-auto lg:w-full">
-            Login now and connect to the people with similar traveling interest.
+            Ready to set off on new horizons? Login now and embark on a journey
+            of connection, where you can meet fellow travelers who share your
+            passion and curiosity. Forge friendships, swap tales, and explore
+            the world through the eyes of like-minded adventurers. Join us in
+            creating a global network of wanderers and seekers. Login today to
+            begin your travel-inspired adventure!
           </p>
         </div>
         <div className="lg:w-[50%] mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -61,15 +66,18 @@ const Login = () => {
                 name="password"
                 className="input input-bordered"
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Show Password
-                </a>
-              </label>
             </div>
             <p className="text-red-600">{showError && showError.slice(9)}</p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Login</button>
+            </div>
+            <div>
+              <p className="text-center mt-3 font-semibold">
+                New to Travigo?{" "}
+                <Link to="/register" className="text-blue-600">
+                  Register
+                </Link>
+              </p>
             </div>
           </form>
         </div>

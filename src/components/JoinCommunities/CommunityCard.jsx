@@ -27,7 +27,9 @@ const CommunityCard = ({ singleCommunity }) => {
         </p>
         <div className="card-actions justify-end">
           <Link to={`/community-details/${_id}`}>
-            <button className="btn">View Details</button>
+            <button className="btn bg-[#021817] text-white hover:bg-[#0218179c]">
+              View Details
+            </button>
           </Link>
         </div>
       </div>

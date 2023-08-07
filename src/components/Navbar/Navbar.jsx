@@ -64,7 +64,7 @@ const Navbar = () => {
           </ul>
         </div>
 
-        <a className="btn btn-ghost normal-case text-xl">
+        <a className="font-semibold uppercase text-xl ms-4">
           <FaPlaneDeparture className="mr-2"></FaPlaneDeparture> Travigo
         </a>
       </div>
@@ -97,7 +97,10 @@ const Navbar = () => {
       </div>
       <div className="navbar-end">
         {user && (
-          <a onClick={handleLogOut} className="btn">
+          <a
+            onClick={handleLogOut}
+            className="btn lg:me-4 bg-[#021817] text-white hover:bg-[#0218179c]"
+          >
             Logout
           </a>
         )}

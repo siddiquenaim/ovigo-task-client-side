@@ -6,8 +6,16 @@ import Swal from "sweetalert2";
 const CommunityDetails = () => {
   const { user } = useContext(AuthContext);
   const userEmail = user?.email;
-  const { _id, name, adminName, adminEmail, totalPost, image, members } =
-    useLoaderData();
+  const {
+    _id,
+    name,
+    adminName,
+    adminEmail,
+    totalPost,
+    image,
+    members,
+    details,
+  } = useLoaderData();
   const navigate = useNavigate();
 
   const handleJoinCommunity = () => {
@@ -49,38 +57,42 @@ const CommunityDetails = () => {
         <img src={image} alt="" />
       </div>
       <div className="lg:w-[50%] mx-auto">
-        <h1 className="text-2xl mb-5">{name}</h1>
-        <div className="space-y-2">
-          <p>Admin Name: {adminName}</p>
-          <p> Admin Email: {adminEmail}</p>
+        <h1 className="text-2xl mb-5 font-semibold">{name}</h1>
+        <div className="space-y-3">
           <p>
-            Total User:{" "}
+            {" "}
+            <span className="font-semibold">Admin Name:</span> {adminName}
+          </p>
+          <p>
+            {" "}
+            <span className="font-semibold">Admin Email:</span> {adminEmail}
+          </p>
+          <p>
+            {" "}
+            <span className="font-semibold">Description:</span> {details}
+          </p>
+          <p>
+            <span className="font-semibold">Total Member:</span>{" "}
             {members ? <span>{members.length}</span> : <span>0</span>}
           </p>
-          <p>
-            Total Post:{" "}
-            {totalPost ? (
-              <>
-                <span>${totalPost}</span>{" "}
-                <button className="btn">Manage User</button>
-              </>
-            ) : (
-              <span>0</span>
-            )}
-          </p>
-          <button
-            className="btn"
-            onClick={handleJoinCommunity}
-            disabled={alreadyJoined}
-          >
-            {alreadyJoined ? "Already Joined" : "Join Community"}
-          </button>
 
-          {alreadyJoined && (
-            <Link to={`/visit-community/${_id}`}>
-              <button className="btn btn-primary ml-2">Visit Community</button>
-            </Link>
-          )}
+          <div>
+            <button
+              className="btn"
+              onClick={handleJoinCommunity}
+              disabled={alreadyJoined}
+            >
+              {alreadyJoined ? "Already Joined" : "Join Community"}
+            </button>
+
+            {alreadyJoined && (
+              <Link to={`/visit-community/${_id}`}>
+                <button className="btn btn-primary ml-2">
+                  Visit Community
+                </button>
+              </Link>
+            )}
+          </div>
         </div>
       </div>
     </div>

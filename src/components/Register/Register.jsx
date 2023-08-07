@@ -1,7 +1,7 @@
 import React, { useContext, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 import { updateProfile } from "firebase/auth";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 
 const Register = () => {
@@ -43,7 +43,7 @@ const Register = () => {
             if (data?.acknowledged) {
               Swal.fire({
                 icon: "success",
-                title: "User has been Created Successfully",
+                title: "Registered Successfully!",
                 showConfirmButton: true,
                 timer: 1500,
               });
@@ -71,14 +71,18 @@ const Register = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-base-200 py-20">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left lg:w-[50%] mx-auto">
           <h1 className="text-5xl font-bold">Register now!</h1>
           <p className="py-6 w-[75%] mx-auto lg:w-full">
-            Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-            excepturi exercitationem quasi. In deleniti eaque aut repudiandae et
-            a id nisi.
+            Embark on a journey of camaraderie and exploration by registering to
+            join our vibrant community of passionate travel lovers! Discover
+            awe-inspiring destinations, share captivating stories, and connect
+            with kindred spirits who share your wanderlust. Whether you're a
+            seasoned globetrotter or a curious explorer, our community awaits to
+            welcome you with open arms. Register today and unlock a world of
+            adventure, connection, and unforgettable experiences!
           </p>
         </div>
         <div className="lg:w-[50%] mx-auto card flex-shrink-0 w-full max-w-sm shadow-2xl bg-base-100">
@@ -116,6 +120,7 @@ const Register = () => {
                 name="email"
                 placeholder="email"
                 className="input input-bordered"
+                required
               />
               <label className="label">
                 <span className="label-text">Phone</span>
@@ -136,16 +141,20 @@ const Register = () => {
                 placeholder="password"
                 name="password"
                 className="input input-bordered"
+                required
               />
-              <label className="label">
-                <a href="#" className="label-text-alt link link-hover">
-                  Show Password
-                </a>
-              </label>
             </div>
             <p className="text-red-600">{showError && showError.slice(9)}</p>
             <div className="form-control mt-6">
               <button className="btn btn-primary">Register</button>
+            </div>
+            <div>
+              <p className="text-center mt-3 font-semibold">
+                Already has an account?{" "}
+                <Link to="/login" className="text-blue-600">
+                  Login
+                </Link>
+              </p>
             </div>
           </form>
         </div>

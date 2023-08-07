@@ -43,14 +43,14 @@ const JoinCommunities = () => {
   }, [allCommunities, joinedCommunities]);
 
   return (
-    <div>
+    <div className="py-20">
       <h1 className="text-center text-3xl">Other Communities</h1>
       {suggestedCommunities.length === 0 ? (
         <p className="my-10 text-center">
           You have joined all the communities!
         </p>
       ) : (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10 mb-20 mx-10">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 mt-10 mx-10">
           {suggestedCommunities.map((singleCommunity) => (
             <CommunityCard
               key={singleCommunity._id}
