@@ -33,8 +33,8 @@ const UserCommunity = () => {
             <p> Admin Email: {userCommunity?.adminEmail}</p>
             <p>
               Total User:{" "}
-              {userCommunity?.totalUser ? (
-                <span>${userCommunity?.totalUser}</span>
+              {userCommunity?.members ? (
+                <span>{userCommunity?.members.length}</span>
               ) : (
                 <span>0</span>
               )}

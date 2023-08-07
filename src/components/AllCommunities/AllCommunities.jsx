@@ -21,7 +21,6 @@ const AllCommunities = () => {
               <th>Community</th>
               <th>Number of Members</th>
               <th>Number of Posts</th>
-
               <th>View Details</th>
             </tr>
           </thead>
