@@ -30,37 +30,39 @@ const UserCommunity = () => {
       ) : (
         <>
           <h1 className="text-4xl text-center">{userCommunity?.name}</h1>
-          <div className="mt-10 justify-center gap-5">
+          <div className="mt-10 justify-between gap-7 flex">
             <div className="mx-auto">
               <img
                 src={userCommunity?.image}
-                className="h-[400px] w-[600px]"
+                className="h-[300px] w-[500px]"
                 alt=""
               />
             </div>
-            <div className="mx-auto mt-5 text-2xl space-y-2">
-              <p>
-                <span className="font-semibold">Admin Name:</span>{" "}
-                {userCommunity?.adminName}
-              </p>
-              <p>
-                {" "}
-                <span className="font-semibold">Admin Email:</span>{" "}
-                {userCommunity?.adminEmail}
-              </p>
-              <p>
-                <span className="font-semibold">Total User:</span>{" "}
-                {userCommunity?.members ? (
-                  <span>{userCommunity?.members.length}</span>
-                ) : (
-                  <span>0</span>
-                )}
-              </p>
-              <Link to={`/visit-community/${userCommunity?._id}`}>
-                <button className="btn bg-[#021817] text-white hover:bg-[#0218179c] mt-3">
-                  Visit Community
-                </button>
-              </Link>
+            <div className="flex justify-center items-center">
+              <div className="mx-auto mt-5 text-2xl space-y-2 text-start">
+                <p>
+                  <span className="font-semibold">Admin Name:</span>{" "}
+                  {userCommunity?.adminName}
+                </p>
+                <p>
+                  {" "}
+                  <span className="font-semibold">Admin Email:</span>{" "}
+                  {userCommunity?.adminEmail}
+                </p>
+                <p>
+                  <span className="font-semibold">Total User:</span>{" "}
+                  {userCommunity?.members ? (
+                    <span>{userCommunity?.members.length}</span>
+                  ) : (
+                    <span>0</span>
+                  )}
+                </p>
+                <Link to={`/visit-community/${userCommunity?._id}`}>
+                  <button className="btn bg-[#021817] text-white hover:bg-[#0218179c] mt-3">
+                    Visit Community
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         </>

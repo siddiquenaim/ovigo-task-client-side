@@ -17,11 +17,13 @@ import CommunityDetails from "./components/CommunityDetails/CommunityDetails.jsx
 import ManageMembers from "./components/ManageMembers/ManageMembers.jsx";
 import JoinedCommunities from "./components/JoinedCommunities/JoinedCommunities.jsx";
 import VisitCommunity from "./components/VisitCommunity/VisitCommunity.jsx";
+import ErrorPage from "./components/ErrorPage/ErrorPage.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <HomeLayout></HomeLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "/",
@@ -60,6 +62,7 @@ const router = createBrowserRouter([
   {
     path: "dashboard",
     element: <DashboardLayout></DashboardLayout>,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         path: "",
