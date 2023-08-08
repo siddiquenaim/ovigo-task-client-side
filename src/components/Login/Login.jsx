@@ -30,7 +30,7 @@ const Login = () => {
   };
 
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <div className="hero min-h-screen bg-base-200 py-20">
       <div className="hero-content flex-col lg:flex-row">
         <div className="text-center lg:text-left lg:w-[50%] mx-auto">
           <h1 className="text-5xl font-bold">Login now!</h1>
@@ -54,6 +54,7 @@ const Login = () => {
                 name="email"
                 placeholder="email"
                 className="input input-bordered"
+                required
               />
             </div>
             <div className="form-control">
@@ -65,6 +66,7 @@ const Login = () => {
                 placeholder="password"
                 name="password"
                 className="input input-bordered"
+                required
               />
             </div>
             <p className="text-red-600">{showError && showError.slice(9)}</p>

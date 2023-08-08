@@ -7,7 +7,7 @@ const CommunityCard = ({ singleCommunity }) => {
   const { _id, adminEmail, adminName, details, image, name, members } =
     singleCommunity;
   return (
-    <div className="card card-side bg-base-100 shadow-xl w-full">
+    <div className="card lg:card-side bg-base-100 shadow-xl w-full">
       <figure>
         <img
           src={image}

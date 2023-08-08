@@ -52,12 +52,12 @@ const CommunityDetails = () => {
   // console.log(alreadyJoined);
 
   return (
-    <div className="lg:flex justify-center my-20">
+    <div className="lg:flex justify-center my-20 text-center lg:text-start">
       <div className="lg:w-[50%] mx-auto max-h-[300px] max-w-[300px]">
         <img src={image} alt="" />
       </div>
       <div className="lg:w-[50%] mx-auto">
-        <h1 className="text-2xl mb-5 font-semibold">{name}</h1>
+        <h1 className="text-2xl mb-5 font-semibold mt-5 lg:mt-0">{name}</h1>
         <div className="space-y-3">
           <p>
             {" "}

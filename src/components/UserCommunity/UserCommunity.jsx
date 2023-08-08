@@ -30,8 +30,8 @@ const UserCommunity = () => {
       ) : (
         <>
           <h1 className="text-4xl text-center">{userCommunity?.name}</h1>
-          <div className="mt-10 justify-between gap-7 flex">
-            <div className="mx-auto">
+          <div className="mt-10 justify-between gap-7 lg:flex">
+            <div className="mx-auto w-[90%]">
               <img
                 src={userCommunity?.image}
                 className="h-[300px] w-[500px]"
@@ -39,7 +39,7 @@ const UserCommunity = () => {
               />
             </div>
             <div className="flex justify-center items-center">
-              <div className="mx-auto mt-5 text-2xl space-y-2 text-start">
+              <div className="mx-auto mt-5 text-2xl space-y-2 lg:text-start">
                 <p>
                   <span className="font-semibold">Admin Name:</span>{" "}
                   {userCommunity?.adminName}

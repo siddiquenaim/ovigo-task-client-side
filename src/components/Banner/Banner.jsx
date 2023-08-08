@@ -5,8 +5,8 @@ import { AuthContext } from "../../provider/AuthProvider/AuthProvider";
 const Banner = () => {
   const { user } = useContext(AuthContext);
   return (
-    <div className="bg-base-200">
-      <div className="md:flex text-center md:text-left w-[90%] lg:w-full mx-auto pt-10">
+    <div className="bg-base-200 py-20 lg:py-10">
+      <div className="md:flex text-center md:text-left w-[90%] lg:w-full mx-auto">
         <div className="md:w-[50%] flex justify-center items-center mb-10 md:mb-0">
           <div className="md:w-[80%]">
             <div className="text-5xl">
